@@ -3,6 +3,7 @@ const express = require('express')
 const app = express() // creates an application which allows us to set up our entire server
 
 app.set("view engine", "ejs")
+app.use(logger)
 
 app.get('/', (req, res)=> {
     console.log("Here")
@@ -18,7 +19,7 @@ app.use("/users", userRouter)
 // const postRouter = require("./routes/posts")
 // app.use("/posts", postRouter)
 function logger(req, res, next) { // works like .get
-    console.log(req.originalUr1)
+    console.log(req.originalUrl)
     next()
 }
 
